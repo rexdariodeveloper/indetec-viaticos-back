@@ -1,0 +1,1 @@
+UPDATE tblAlertaDefinicion SET RutaAccion = 'app/viaticos/solicitudes/resumen/{id}/1'

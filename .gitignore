@@ -1,0 +1,68 @@
+!.mvn/wrapper/maven-wrapper.jar
+
+### Pixvs ###
+csv/
+scripts/_last.txt
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+
+### IntelliJ IDEA ###
+*.iml
+.idea
+*.ipr
+*.iws
+.idea/workspace.xml
+*.log
+*.log.*.gz
+
+out
+test-output
+atlassian-ide-plugin.xml
+.gradletasknamecache
+
+### Spring ### 
+*.java.hsp
+*.sonarj
+*.sw*
+.DS_Store
+.settings
+.springBeans
+bin
+build.sh
+integration-repo
+ivy-cache
+jxl.log
+jmx.log
+derby.log
+spring-test/test-output/
+.gradle
+argfile*
+#pom.xml
+activemq-data/
+
+classes/
+/build
+buildSrc/build
+/spring-*/build
+/src/asciidoc/build
+target/
+
+
+### NetBeans ###
+nbproject/private/
+build/
+nbbuild/
+dist/
+nbdist/
+.nb-gradle/
+
+# Eclipse artifacts, including WTP generated manifests
+.classpath
+.project
+spring-*/src/main/java/META-INF/MANIFEST.MF

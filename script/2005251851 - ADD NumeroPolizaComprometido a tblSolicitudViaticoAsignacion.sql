@@ -1,0 +1,2 @@
+ALTER TABLE tblSolicitudViaticoAsignacion ADD NumeroPolizaComprometido NVARCHAR(6)
+GO

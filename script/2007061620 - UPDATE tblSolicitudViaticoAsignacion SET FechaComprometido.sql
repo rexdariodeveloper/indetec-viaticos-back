@@ -1,0 +1,2 @@
+UPDATE tblSolicitudViaticoAsignacion SET FechaComprometido = FechaUltimaModificacion WHERE FechaComprometido IS NULL AND SolicitudViaticoId IN (SELECT SolicitudViaticoId FROM tblSolicitudViatico WHERE EstatusId IN (1000098, 1000161))
+GO

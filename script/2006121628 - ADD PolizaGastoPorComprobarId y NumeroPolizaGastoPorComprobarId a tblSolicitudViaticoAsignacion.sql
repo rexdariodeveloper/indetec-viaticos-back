@@ -1,0 +1,5 @@
+ALTER TABLE tblSolicitudViaticoAsignacion ADD PolizaGastoPorComprobarId BIGINT
+GO
+
+ALTER TABLE tblSolicitudViaticoAsignacion ADD NumeroPolizaGastoPorComprobarId NVARCHAR(6)
+GO

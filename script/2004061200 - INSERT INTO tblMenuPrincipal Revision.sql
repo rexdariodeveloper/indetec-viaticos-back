@@ -1,0 +1,2 @@
+INSERT INTO [dbo].[tblMenuPrincipal](Etiqueta, Descripcion, TipoNodoId, NodoPadreId, SistemaAccesoId, Url, Icono, AdmitePermiso, Orden, EstatusId)
+VALUES ('Revision', 'Ficha Revision', 1000005, 12, 1000007, 'viaticos/revisiones', 'fi flaticon-archive', 1, 4, 1000000)

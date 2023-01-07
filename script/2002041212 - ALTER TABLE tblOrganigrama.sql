@@ -1,0 +1,1 @@
+ALTER TABLE [dbo].[tblOrganigrama] ADD Clave NVARCHAR(10) NOT NULL DEFAULT 0

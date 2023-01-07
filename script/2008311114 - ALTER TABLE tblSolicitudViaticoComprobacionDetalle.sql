@@ -1,0 +1,4 @@
+ALTER TABLE tblSolicitudViaticoComprobacionDetalle
+ADD CuentaPagoGastoId INT
+
+

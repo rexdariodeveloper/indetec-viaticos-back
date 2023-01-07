@@ -1,0 +1,1 @@
+ALTER TABLE [dbo].tblSolicitudViaticoComprobacionDetalle DROP COLUMN TipoPasajeId;

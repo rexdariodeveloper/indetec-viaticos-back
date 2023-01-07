@@ -1,0 +1,2 @@
+ALTER TABLE tblSolicitudViatico ADD OficioComisionArchivoId UNIQUEIDENTIFIER
+GO

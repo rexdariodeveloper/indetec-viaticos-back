@@ -1,0 +1,2 @@
+ALTER TABLE [dbo].[tblSolicitudViaticoAsignacionPasaje] DROP CONSTRAINT [FK_tblSolicitudViaticoAsignacionPasaje_tblListadoCMM]
+ALTER TABLE [dbo].[tblSolicitudViaticoAsignacionPasaje] DROP COLUMN TipoViajeId;

@@ -1,0 +1,2 @@
+ALTER TABLE tblSolicitudViaticoComprobacionDetalle
+ADD ProveedorPaisId NVARCHAR(5) NULL

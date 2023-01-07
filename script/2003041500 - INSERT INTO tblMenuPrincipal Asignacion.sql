@@ -1,0 +1,2 @@
+INSERT INTO tblMenuPrincipal(Etiqueta, Descripcion, TipoNodoId, NodoPadreId, SistemaAccesoId, Url, Icono, AdmitePermiso, Orden, EstatusId)
+VALUES('Asignar viáticos','Ficha Asignar Viáticos', 1000005, 12, 1000007, 'viaticos/asignaciones','fi flaticon-users',1,2,1000000)

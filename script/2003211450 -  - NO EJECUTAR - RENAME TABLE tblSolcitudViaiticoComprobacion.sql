@@ -1,0 +1,21 @@
+
+
+-- Cambiar Nombre a Tabla tblSolicitudViaticoComprobacion por tblSolicitudViaticoComprobacionDetalle
+EXEC sp_rename 'tblSolicitudViaticoComprobacion', 'tblSolicitudViaticoComprobacionDetalle'
+GO
+
+-- Cambiar Nombre a Campo SolicitudViaticoComprobacionId por SolicitudViaticoComprobacionDetalleId
+EXEC sp_rename 'tblSolicitudViaticoComprobacionDetalle.SolicitudViaticoComprobacionId', 'SolicitudViaticoComprobacionDetalleId'
+GO
+
+ALTER TABLE tblSolicitudViaticoComprobacionDetalle
+DROP CONSTRAINT FK_tblSolicitudViaticoComprobacion_tblSolicitudViatico
+GO
+
+ALTER TABLE tblSolicitudViaticoComprobacionDetalle
+DROP COLUMN SolicitudViaticoId
+GO
+
+-- Cambiar Nombre a Campo SolicitudViaticoComprobacionId por SolicitudViaticoComprobacionDetalleId en tblSolicitudViaticoComprobacionPasaje
+EXEC sp_rename 'tblSolicitudViaticoComprobacionPasaje.SolicitudViaticoComprobacionId', 'SolicitudViaticoComprobacionDetalleId'
+GO

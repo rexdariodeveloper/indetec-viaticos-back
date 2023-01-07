@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fontFamilies>
+    <fontFamily name="Calibri">
+        <normal><![CDATA[jasper/fonts/calibri/calibri.ttf]]></normal>
+        <bold><![CDATA[jasper/fonts/calibri/calibri-bold.ttf]]></bold>
+        <pdfEmbedded><![CDATA[true]]></pdfEmbedded>
+        <exportFonts/>
+    </fontFamily>
+</fontFamilies>

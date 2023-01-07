@@ -1,0 +1,409 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.9.0.final using JasperReports Library version 6.9.0-cb8f9004be492ccc537180b49c026951f4220bf3  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Fundacion_GROADMAN" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="1836c721-72be-4479-be72-aaefb7953daa">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="UDGUSA"/>
+	<subDataset name="Empty Dataset1" uuid="220741a2-df99-40b6-8741-1ef748dee18c"/>
+	<parameter name="p_Folio" class="java.lang.String"/>
+	<parameter name="Path" class="java.lang.String">
+		<defaultValueExpression><![CDATA["./img/"]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select s.SPA_CodigoSolicitudPago as folio,
+       cm.CMM_Valor as tipo_solicitud2,
+	   s.SPA_Motivo as motivo,
+	   s.SPA_EmitirA as afavorde,
+	  convert(DECIMAL(10,2),s.SPA_Monto) as numeromonto,
+	  CONVERT(char(10), s.SPA_FechaCreacion,126) as fecha,
+	   s.SPA_PROGP_ProyectoId as cuenta,
+	   pro.PROGP_Codigo,
+	   dbo.CantidadConLetra(SPA_Monto) as numeroletras
+from SolicitudesPagos s,
+     ControlesMaestrosMultiples cm,
+	 ProgramasProyectos pro
+where s.SPA_CMM_TipoId = cm.CMM_ControlId
+  and s.SPA_PROGP_ProyectoId = pro.PROGP_ProyectoId
+  and  s.SPA_CodigoSolicitudPago =  $P{p_Folio} ]]>
+	</queryString>
+	<field name="folio" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="folio"/>
+	</field>
+	<field name="tipo_solicitud2" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="tipo_solicitud2"/>
+	</field>
+	<field name="motivo" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="motivo"/>
+	</field>
+	<field name="afavorde" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="afavorde"/>
+	</field>
+	<field name="numeromonto" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="numeromonto"/>
+	</field>
+	<field name="fecha" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="fecha"/>
+	</field>
+	<field name="cuenta" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="cuenta"/>
+	</field>
+	<field name="PROGP_Codigo" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="PROGP_Codigo"/>
+	</field>
+	<field name="numeroletras" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="numeroletras"/>
+	</field>
+	<variable name="folio1" class="java.lang.Integer" resetType="Page" calculation="DistinctCount">
+		<variableExpression><![CDATA[$F{folio}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="71" splitType="Stretch">
+			<image hAlign="Center" vAlign="Middle">
+				<reportElement x="417" y="0" width="136" height="57" uuid="4227fec2-3f59-45e2-aa0e-179de9795980"/>
+				<imageExpression><![CDATA[$P{Path}+"logo_reporte_grodman.png"]]></imageExpression>
+			</image>
+			<image hAlign="Center" vAlign="Middle">
+				<reportElement x="0" y="0" width="140" height="50" uuid="91989264-84df-44fb-9cde-51ad2c88da11"/>
+				<imageExpression><![CDATA[$P{Path}+"logo_reporte_udgusa.png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="100" y="41" width="355" height="25" uuid="15e8cae2-f543-4942-b9b1-4bf90f812de2">
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[REQUEST FOR RESOURCES]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="86" splitType="Stretch">
+			<staticText>
+				<reportElement stretchType="RelativeToTallestObject" x="8" y="21" width="447" height="20" uuid="81ca0208-1b47-4db8-ad27-b51f9b7afc6f">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[EXECUTIVE VICE PRESIDENT]]></text>
+			</staticText>
+			<staticText>
+				<reportElement stretchType="RelativeToTallestObject" x="8" y="1" width="447" height="20" uuid="199cbd65-3e2a-4562-9280-e64583045e93">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[LUIS GUSTAVO PADILLA MONTES]]></text>
+			</staticText>
+			<staticText>
+				<reportElement stretchType="RelativeToTallestObject" x="8" y="41" width="447" height="21" uuid="226085f2-e498-4c9f-8e3a-d669530f0c30">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[THE UNIVERSITY OF GUADALAJARA FOUNDATION U.S.A.
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement stretchType="RelativeToTallestObject" x="8" y="62" width="447" height="21" uuid="951e068d-772b-4e30-9440-a5e4204116cb">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[PRESENT]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="455" y="50" width="100" height="30" uuid="0329611c-211f-4bb6-a38d-9892a0870cba"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{folio}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="20" splitType="Stretch">
+			<staticText>
+				<reportElement x="10" y="3" width="445" height="16" uuid="c4e89342-bce3-44ad-bfcc-4a005c306317"/>
+				<textElement>
+					<font fontName="SansSerif" size="12"/>
+				</textElement>
+				<text><![CDATA[Type of resource requested:]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="308">
+			<rectangle>
+				<reportElement x="313" y="275" width="166" height="18" uuid="1d132f67-3db8-4454-81e8-6f0380521c98"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="313" y="249" width="166" height="26" uuid="0ed89973-3443-41b2-80fc-89a69d33950d"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="313" y="228" width="166" height="21" uuid="7c8f7b89-aa68-4368-9393-582a9073f449"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="21" y="246" width="233" height="47" uuid="407ab5b4-a5cc-4789-b01e-396628fab585"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="21" y="228" width="233" height="18" uuid="f4011aa6-bd0c-4099-8c38-7bf747df84d0"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="19" y="156" width="517" height="23" uuid="d195a644-b90e-4627-b71d-1acb28c20e23"/>
+			</rectangle>
+			<rectangle>
+				<reportElement positionType="FixRelativeToBottom" x="18" y="102" width="518" height="23" uuid="67af2874-7567-41f4-9b16-e9bfecb0479c"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="18" y="9" width="40" height="20" uuid="eb69d0e7-1b38-46b7-a89f-eb5e8b509fb7"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="58" y="9" width="204" height="20" uuid="fdbd0537-51e2-4a55-a60e-0488389f6dc7"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="18" y="29" width="40" height="20" uuid="6f60eed9-e970-46ea-8d69-133ac42b4f36"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="58" y="29" width="204" height="20" uuid="bac6997e-7b48-4a7a-b82f-f9a91411a166"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="18" y="49" width="40" height="20" uuid="6321c1f4-1f5c-4861-9c32-7cdd7db2e5c1"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="58" y="49" width="204" height="20" uuid="98e11419-0c80-4f7c-9af2-cf87be3f01de"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="59" y="9" width="204" height="20" uuid="aaa33b78-50c2-4962-bcc7-c5925e60cb1f"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Reimbursement]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="59" y="30" width="203" height="19" uuid="330fa2c7-6a26-43f2-94e4-d627345794b1"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[General expense]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="59" y="49" width="203" height="20" uuid="143a578f-4c75-497d-a747-cef356074ce9"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Payment to supplier]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="78" width="445" height="20" uuid="3637555b-bf50-4c08-886f-1556c72bbef1"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<text><![CDATA[Purpose of the resource request: 
+]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="18" y="103" width="518" height="22" uuid="e1118480-08a1-4af0-b621-e20a1cfffb0e">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="e4c91351-20b6-4422-ac63-67d811a72c6d"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="12" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{motivo}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="10" y="135" width="445" height="20" uuid="bf1c0211-bde1-4110-bc58-0ce0e53dad38"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<text><![CDATA[Issue check and / or transfer in favor of:
+]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="98" y="157" width="439" height="22" uuid="640f9a04-bf21-4cae-b778-71f3e31dc444">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="9944d572-a924-49a0-8970-bc0a5db9bdb8"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{afavorde}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="10" y="198" width="252" height="20" uuid="7dbc6628-f511-4ff4-8c96-3ba9216cd8e0"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<text><![CDATA[Total amount:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="101" y="229" width="153" height="18" uuid="4449479f-d3eb-4e15-bd61-ff5bada91916">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="79944fc1-6a99-4fe0-b8e3-a7084e14fc6f"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{numeromonto}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="36" y="229" width="65" height="18" uuid="ad46f3f4-3675-4bac-95fb-7a96bed6ab07"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="12"/>
+				</textElement>
+				<text><![CDATA[NUMBERS: $]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="34" y="260" width="64" height="18" uuid="640efeba-0479-4a68-94b8-80704a398671"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="12"/>
+				</textElement>
+				<text><![CDATA[WRITTEN :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="101" y="247" width="153" height="45" uuid="73466181-da3f-4b62-b538-87d9ade75024">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="d1cee3f9-1e22-4f3b-ab1a-4d4ebc30e234"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{numeroletras}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="309" y="198" width="98" height="20" uuid="d5871f01-9f4f-4eeb-a685-95ef893e04b4"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<text><![CDATA[Invoice: ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="321" y="229" width="49" height="20" uuid="014a7d6b-31b1-41aa-a3c4-e0338d8e1f8f"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+				<text><![CDATA[No.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="321" y="249" width="49" height="26" uuid="7df57776-3933-49ea-a14f-acf2e9fc18b9"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Date:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="320" y="275" width="50" height="18" uuid="e49552f0-2988-4e76-a629-65bd7362fd0a"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Account:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="370" y="254" width="109" height="17" uuid="bf803c7c-9268-4fc7-95ac-11d679655c66">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="7154527b-36da-4fae-8c98-f09356620135"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{fecha}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="370" y="275" width="109" height="18" uuid="d71ef143-6e43-41dc-91cc-d2a93fc6570c">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="e56e3f13-859e-4116-b25e-56719b7c7ae9"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PROGP_Codigo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="19" y="9" width="39" height="20" uuid="d92eb8e1-1e85-4f92-ac11-f275527de574"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{tipo_solicitud2}.equals( "Reembolso"  ) ?  "*":" "]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="19" y="49" width="39" height="20" uuid="31d5a4de-e4e0-4ae8-99d7-d44f7064f256"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{tipo_solicitud2}.equals( "Pago a Proveedor" )  ?  "*" : " "]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="19" y="30" width="39" height="19" uuid="b9a7a90f-f4a2-4e57-9a1e-cf59fd67dde1"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{tipo_solicitud2}.equals( "Gasto General"  ) ?  "*":" "]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="22" y="157" width="76" height="22" uuid="202045b6-cf7a-400b-b71a-d557d08848c4"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[NAME:]]></text>
+			</staticText>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="313" splitType="Stretch">
+			<rectangle>
+				<reportElement x="120" y="75" width="320" height="90" uuid="8c442d3d-6fc1-4963-b6a5-64a49db2e7ca"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="120" y="35" width="320" height="40" uuid="18af338f-645e-4b3b-ab1b-84469b6abaf6"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="282" y="177" width="268" height="33" uuid="4d3ac694-1c96-4e1a-ac5b-b2e1fe27184a"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="227" y="35" width="100" height="20" uuid="ce7d326f-7c13-42c6-8707-017f4c3013be"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Authorized ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="228" y="55" width="40" height="20" uuid="b5022046-7b51-4808-b8f0-271b15e966ec"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Date :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="120" y="80" width="320" height="80" uuid="87ced901-55b0-4789-9ca9-b40b5b23101c"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom"/>
+				<text><![CDATA[Mtro. Luis Gustavo Padilla Montes
+Executive Vice-president
+University of Guadalajara Foundation USA]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="13" y="177" width="269" height="33" uuid="111d85fc-a9c5-4671-9d0c-bc962e273e4f"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="13" y="210" width="269" height="91" uuid="c98fe4b0-c8d7-4931-82d0-69987fdae496"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="13" y="183" width="269" height="20" uuid="37d017de-4a86-4dfe-8043-de3a93ee9f0f"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Reviewed:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="36" y="240" width="200" height="62" uuid="4737f189-16cc-4c2e-b75f-d68acaac32f1"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Denisse Murillo González
+Office Manager
+University of Guadalajara Foundation USA]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="282" y="210" width="268" height="91" uuid="4b880c10-305f-4829-b9c9-2403c5f3feca"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="282" y="183" width="268" height="20" uuid="bfaa38f7-c332-443f-9fa3-8d419dfbb303"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Requested:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="320" y="240" width="200" height="62" uuid="8cbff765-d717-458b-8b88-6e7459243180"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Gabriel Sotomayor Carrasquilla 
+Administrative Director
+University of Guadalajara Foundation USA]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+</jasperReport>

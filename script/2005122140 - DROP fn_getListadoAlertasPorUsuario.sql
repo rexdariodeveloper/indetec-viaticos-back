@@ -1,0 +1,2 @@
+--Eliminar Funcion
+DROP FUNCTION fn_getListadoAlertasPorUsuario
